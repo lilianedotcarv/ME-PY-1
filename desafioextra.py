@@ -30,8 +30,6 @@ try:
     arquivo_vendas.close()
 
 except ValueError as erro:
-    print("Erro:", erro)
-
     with open("log_erros.txt", "a", encoding="utf-8") as log:
-        log.write("Erro")
+        log.write(f"Erro {ValueError}")
 
