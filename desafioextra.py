@@ -1,6 +1,5 @@
 try:
     arquivo_vendas = open("vendas.txt", "a", encoding="utf-8")
-    log_erros = open("log_erros.txt", "a", encoding="utf-8")
 
     produto = input("Nome do produto?")
     quantidade = int(input("Quantidade so produto?"))
@@ -31,5 +30,13 @@ try:
 
 except ValueError as erro:
     with open("log_erros.txt", "a", encoding="utf-8") as log:
-        log.write(f"Erro {ValueError}")
+        log.write(f" Erro de valor: {erro}\n")
+
+    print("Erro: os dados informados são inválidos.")
+
+except OSError as erro:
+    with open("log_erros.txt", "a", encoding="utf-8") as log:
+        log.write(f" Erro ao acessar arquivo: {erro}\n")
+
+    print("Erro ao acessar o arquivo.") 
 
